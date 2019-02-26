@@ -60,4 +60,25 @@ public class Critter
     {
         return weight;
     }
+    
+    @Override
+    public boolean equals(Object otherObject)
+    {
+       if (otherObject == null)
+          return false;
+       else if (this.getClass() != otherObject.getClass()) 
+          return false;
+       
+       Critter other = (Critter) otherObject;
+
+       return (other.position == position && other.weight == weight
+             && other.history.equals(history));
+    }
+    
+    @Override
+    public String toString()
+    {
+       return getClass().getName() + "[position=" + position + ",weight=" + weight +
+             ",history=" + history.toString() + "]";
+    }
 }
